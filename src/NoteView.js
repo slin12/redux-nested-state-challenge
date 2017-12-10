@@ -3,19 +3,18 @@ import { connect } from 'react-redux';
 import * as actions from './actions';
 
 class NoteView extends React.Component {
-  handleClick = index => {
-    this.props.deleteNote(index);
+  handleClick = id => {
+    this.props.deleteNote(id);
   };
 
   render() {
     console.log(this.props);
-    const notes = this.props.notes.map((message, index) => (
+    const notes = this.props.notes.map(note => (
       <div
-        className="comment"
-        key={index}
-        onClick={() => this.handleClick(index)}
+        key={note.timestamp}
+        onClick={() => this.handleClick(note.timestamp)}
       >
-        {message}
+        {note.text}
       </div>
     ));
     return <div className="ui comments">{notes}</div>;

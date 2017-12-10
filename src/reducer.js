@@ -4,14 +4,11 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_NOTE':
       return {
-        notes: state.notes.concat(action.note)
+        notes: [...state.notes, action.note]
       };
     case 'DELETE_NOTE':
       return {
-        notes: [
-          ...state.notes.slice(0, action.index),
-          ...state.notes.slice(action.index + 1, state.notes.length)
-        ]
+        notes: state.notes.filter(note => note.timestamp !== action.id)
       };
     default:
       return state;
