@@ -25,7 +25,7 @@ So your note taking app works as is, but you would like to organize your notes b
 ![challenge](redux-notes-challenge.gif)
 
 
-This will make the shape of your Redux state significantly different. Start by hard-coding in something like this
+This will make the shape of your Redux state significantly different. Begin by replacing the `initialState` variable in your reducer with this new object:
 
 ```js
 const initialState = {
@@ -55,34 +55,6 @@ const initialState = {
 };
 ```
 
+Comment-in the `<SubjectTabs />` Component in `<App />`. You'll have to make some changes to your current NoteView implementation since the state from Redux has changed.
 
-Your task is to implement this new functionality. There are many ways to get this to work and feel free to re-think any of your initial starting code. This is also pretty challenging, work methodically.
-
-Here is an example of a component called `SubjectTabs` you may use if you like:
-
-```js
-import React from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../actions';
-
-class SubjectTabs extends React.Component {
-  handleClick = id => {
-    this.props.changeActiveSubject(id);
-  };
-
-  render() {
-    const tabs = this.props.tabs.map(tab => (
-      <div
-        key={tab.id}
-        className={tab.active ? 'active item' : 'item'}
-        onClick={() => this.handleClick(tab.id)}
-      >
-        {tab.title}
-      </div>
-    ));
-    return <div className="ui top attached tabular menu">{tabs}</div>;
-  }
-}
-
-export default connect(null, actions)(SubjectTabs);
-```
+Your task is to implement this new functionality. There are many ways to get this to work and feel free to re-think any of your initial starting code. This is pretty challenging, work methodically.

@@ -7,7 +7,6 @@ export const addNote = text => {
 // a note can look like
 // {
 //   text: 'some text',
-//   timestamp: Date.now(),
 //   id: Date.now()
 // }
 

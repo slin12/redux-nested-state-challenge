@@ -10,10 +10,7 @@ class NoteView extends React.Component {
   render() {
     console.log(this.props);
     const notes = this.props.notes.map(note => (
-      <div
-        key={note.timestamp}
-        onClick={() => this.handleClick(note.timestamp)}
-      >
+      <div key={note.id} onClick={() => this.handleClick(note.id)}>
         {note.text}
       </div>
     ));
