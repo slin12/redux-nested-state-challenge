@@ -1,6 +1,6 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import * as actions from './actions';
+import React from "react";
+import { connect } from "react-redux";
+import * as actions from "./actions";
 
 class SubjectTabs extends React.Component {
   handleClick = id => {
@@ -11,7 +11,7 @@ class SubjectTabs extends React.Component {
     const tabs = this.props.tabs.map(tab => (
       <div
         key={tab.id}
-        className={tab.active ? 'active item' : 'item'}
+        className={tab.active ? "active item" : "item"}
         onClick={() => this.handleClick(tab.id)}
       >
         {tab.title}
@@ -22,7 +22,6 @@ class SubjectTabs extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     tabs: state.subjects.map(subj => ({
       id: subj.id,
